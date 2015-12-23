@@ -1,16 +1,14 @@
 Rails.application.routes.draw do
 
-  resources :bookmarks
+root 'home#index'
 
-  root 'static_pages#home'
-  get 'login' => 'sessions#new'
-  post 'login' => 'sessions#create'
+resources :sessions
+resources :bookmarks
+resources :users
 
-  get 'bookmarks' => 'bookmarks#index'
-
-	resources :users, only: [:new, :create], path_names: {new: 'sign_up'}
-	resources :sessions
-	resources :bookmarks
+# get '/login', to: "sessions#new", as: 'new_login'
+# post '/login', to: "sessions#create", as: 'login'
+# delete '/logout', to: "sessions#destroy", as: 'logout'
 
 
 end

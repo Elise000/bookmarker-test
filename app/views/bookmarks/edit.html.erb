@@ -1,6 +1,9 @@
-<h1>Editing Bookmark</h1>
+<%= form_for :bookmark, url: bookmark_path(@bookmark) do |f| %>
 
-<%= render 'form' %>
+	  <%= f.text_field :url %>
 
-<%= link_to 'Show', @bookmark %> |
-<%= link_to 'Back', bookmarks_path %>
+	  <%= f.hidden_field :user_id, value: @bookmark.user_id %>
+
+	  <%= f.submit "Edit" %>
+
+<% end %>

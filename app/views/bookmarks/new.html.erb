@@ -1,5 +1,9 @@
 <h1>New Bookmark</h1>
+<%= form_for @bookmark, url: bookmarks_path do |f| %>
 
-<%= render 'form' %>
+	  <%= f.text_field :url, :placeholder => "url"%>
+	  <%= f.hidden_field(:user_id, value: @bookmark.user_id) %>
 
-<%= link_to 'Back', bookmarks_path %>
+	  <%= f.submit "Submit" %>
+
+<% end %>
